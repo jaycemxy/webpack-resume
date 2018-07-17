@@ -20,11 +20,16 @@ module.exports = {
     },
     {
       test: /\.scss$/,
-      use: [
-          "style-loader", // creates style nodes from JS strings
-          "css-loader", // translates CSS into CommonJS
-          "sass-loader" // compiles Sass to CSS
-          ]
+      use: [{
+         loader: "style-loader", // creates style nodes from JS strings
+       },{ 
+        loader:  "css-loader", // translates CSS into CommonJS
+        options: { importLoaders: 1 }
+       },{
+        loader: "postcss-loader"
+       },{
+        loader:  "sass-loader" // compiles Sass to CSS
+       }]
         }
   ]
 }
